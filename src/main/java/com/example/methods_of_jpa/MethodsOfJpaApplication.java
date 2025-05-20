@@ -26,7 +26,7 @@ public class MethodsOfJpaApplication implements CommandLineRunner {
 		// Product product = Product.builder()
 		Product.builder()
 				.productName("I phone")
-				.ProductBrand("Apple")
+				.productBrand("Apple")
 				.productPrice(100000.99)
 				.build();
 		// save()
@@ -67,7 +67,7 @@ public class MethodsOfJpaApplication implements CommandLineRunner {
 		return numbers.stream()
 				.map(number -> Product.builder()
 						.productName("Product - " + number)
-						.ProductBrand("Brand - " + number)
+						.productBrand("Brand - " + number)
 						.productPrice(number * 1000.50)
 						.build())
 				.toList();

@@ -23,6 +23,6 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String productId;
     private String productName;
-    private String ProductBrand;
+    private String productBrand;
     private double productPrice;
 }
