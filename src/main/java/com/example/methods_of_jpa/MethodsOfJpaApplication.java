@@ -23,37 +23,40 @@ public class MethodsOfJpaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Product product = Product.builder()
+		// Product product = Product.builder()
+		Product.builder()
 				.productName("I phone")
 				.ProductBrand("Apple")
 				.productPrice(100000.99)
 				.build();
 		// save()
-		//productRepository.save(product);
+		// productRepository.save(product);
 
 		// saveAll()
-		//productRepository.saveAll(getProducts());
+		// productRepository.saveAll(getProducts());
 
 		// count()
-		//System.out.println("Total rows available in the table  : " + productRepository.count());
+		// System.out.println("Total rows available in the table : " +
+		// productRepository.count());
 
 		// Exist()
-		//System.out.println("Is product with id available : "
-			//	+ productRepository.existsById("21086dfd-a21c-4c19-a29e-be25581720d4"));
+		// System.out.println("Is product with id available : "
+		// + productRepository.existsById("21086dfd-a21c-4c19-a29e-be25581720d4"));
 
 		// delete()
-		//productRepository.deleteById("21086dfd-a21c-4c19-a29e-be25581720d4");
+		// productRepository.deleteById("21086dfd-a21c-4c19-a29e-be25581720d4");
 
 		// findall()
 		List<Product> products2 = productRepository.findAll();
-		//products2.forEach(System.out::println);
+		// products2.forEach(System.out::println);
 
 		List<Product> products3 = productRepository.findAll(Sort.by(Direction.ASC, "productPrice"));
-		//products3.forEach(System.out::println);
+		// products3.forEach(System.out::println);
 
-		//pagination
+		// pagination
 		// Page<Product> products4 = productRepository.findAll(PageRequest.of(0, 3));
-		Page<Product> products4 = productRepository.findAll(PageRequest.of(1, 3, Sort.by(Direction.DESC, "productPrice")));
+		Page<Product> products4 = productRepository
+				.findAll(PageRequest.of(1, 3, Sort.by(Direction.DESC, "productPrice")));
 
 		products4.forEach(System.out::println);
 
