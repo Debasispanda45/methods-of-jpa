@@ -49,10 +49,11 @@ public class MethodsOfJpaApplication implements CommandLineRunner {
 		// productRepository.deleteById("21086dfd-a21c-4c19-a29e-be25581720d4");
 
 		// findall()
-		List<Product> products2 = productRepository.findAll();
+		// List<Product> products2 = productRepository.findAll();
 		// products2.forEach(System.out::println);
 
-		List<Product> products3 = productRepository.findAll(Sort.by(Direction.ASC, "productPrice"));
+		// List<Product> products3 = productRepository.findAll(Sort.by(Direction.ASC,
+		// "productPrice"));
 		// products3.forEach(System.out::println);
 
 		// pagination
@@ -82,22 +83,84 @@ public class MethodsOfJpaApplication implements CommandLineRunner {
 		// System.out.println("Product updated : " + savedProduct);
 
 		// findByProductName
-		// Optional<Product> optProduct = productRepository.findByProductName("Iphone 17 pro max");
+		// Optional<Product> optProduct = productRepository.findByProductName("Iphone 17
+		// pro max");
 		// Product productByName = optProduct.orElseThrow();
 		// System.out.println("Product found by name : " + productByName);
 
 		// findAllByProductPriceBetween
-		// List<Product> productPriceBetween = productRepository.findAllByProductPriceBetween(1000.00, 5000.00);
+		// List<Product> productPriceBetween =
+		// productRepository.findAllByProductPriceBetween(1000.00, 5000.00);
 		// productPriceBetween.forEach(System.out::println);
 
-		//greaterThan
-		// List<Product> productPriceGreaterThan = productRepository.findAllByProductPriceGreaterThan(10000.00, Sort.by(Direction.ASC, "productPrice"));
+		// greaterThan
+		// List<Product> productPriceGreaterThan =
+		// productRepository.findAllByProductPriceGreaterThan(10000.00,
+		// Sort.by(Direction.ASC, "productPrice"));
 		// productPriceGreaterThan.forEach(System.out::println);
 
+		// lessThan
+		// List<Product> productPriceLessThan =
+		// productRepository.findAllByProductPriceLessThan(100000.00,
+		// Sort.by(Direction.ASC, "productPrice"));
+		// productPriceLessThan.forEach(System.out::println);
+
+		// lessThanEqual
+		// List<Product> producrPriceLessThanEqual = productRepository.findAllByProductPriceLessThanEqual(5002.5,
+		// 		Sort.by(Direction.ASC, "productPrice"));
+		// producrPriceLessThanEqual.forEach(System.out::println);
+
+		// greaterThanEqual
+		// List<Product> productPriceGreaterThanEqual = productRepository.findAllByProductPriceGreaterThan(10000.00,
+		// 		Sort.by(Direction.ASC, "productPrice"));
+		// 		productPriceGreaterThanEqual.forEach(System.out::println);
+
+		// findByProductNameLike
+
+		// List<Product> productNameLike = productRepository.findByProductNameLike("%max"); //checks anything ends with max
+		//List<Product> productNameLike = productRepository.findByProductNameLike("I%"); //checks anything starts with I
+		// List<Product> productNameLike = productRepository.findByProductNameLike("%phone%"); //checks anything contains phone
+		// List<Product> productNameLike = productRepository.findByProductNameLike("_______17%");  //checks anything contains 17 and 7 characters before it
+		// productNameLike.forEach(System.out::println);
+
+		// findByProductNameNotLike
+
+		// List<Product> productNameNotLike = productRepository
+		//          .findByProductNameNotLike("_______17%"); 
+		// List<Product> productNameNotLike = productRepository
+		//			.findByProductNameNotLike("%max");
+		// List<Product> productNameNotLike = productRepository
+		//			.findByProductNameNotLike("%I");   //Same thing but oppoiste logic of Like keyword
+		// List<Product> productNameNotLike = productRepository
+		//			.findByProductNameNotLike("I%");
+		// List<Product> productNameNotLike = productRepository
+		//			.findByProductNameNotLike("%product%");
+		// productNameNotLike.forEach(System.out::println);
+
+		// findByProductNameStartingWith
+
+		// List<Product> productNameStartingWith = productRepository
+		// 		.findByProductNameStartingWith("I");
+		// productNameStartingWith.forEach(System.out::println);
+
+		// findByProductNameEndingWith
+
+		// List<Product> productNameEndingWith = productRepository
+		// 		.findByProductNameEndingWith("max");
+		// productNameEndingWith.forEach(System.out::println);
+		
+
 		// findAllByProductBrandAndProductPrice
-		Optional<Product> productByBrandAndPrice = productRepository
-				.findAllByProductBrandAndProductPrice("Apple Ind", 150000.33);
-				System.out.println("Product found by brand and price : " + productByBrandAndPrice.orElseThrow(() -> new NoSuchElementException("Product not found by brand and price")));
+
+		// Optional<Product> productByBrandAndPrice = productRepository
+		//             .findAllByProductBrandAndProductPrice("Apple Ind", 150000.33);
+		// System.out.println("Product found by brand and price : " +
+		// productByBrandAndPrice.orElseThrow(() -> new NoSuchElementException("Product
+		//             not found by brand and price")));
+
+		//findByProductNameContaining
+		List<Product> productNameContaining = productRepository.findByProductNameContaining("phone");
+		productNameContaining.forEach(System.out::println);
 	}
 
 	private List<Product> getProducts() {
