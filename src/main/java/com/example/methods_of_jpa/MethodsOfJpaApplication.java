@@ -148,7 +148,6 @@ public class MethodsOfJpaApplication implements CommandLineRunner {
 		// List<Product> productNameEndingWith = productRepository
 		// 		.findByProductNameEndingWith("max");
 		// productNameEndingWith.forEach(System.out::println);
-		
 
 		// findAllByProductBrandAndProductPrice
 
@@ -159,10 +158,20 @@ public class MethodsOfJpaApplication implements CommandLineRunner {
 		//             not found by brand and price")));
 
 		//findByProductNameContaining
-		List<Product> productNameContaining = productRepository.findByProductNameContaining("phone");
-		productNameContaining.forEach(System.out::println);
+		// List<Product> productNameContaining = productRepository.findByProductNameContaining("phone");
+		// productNameContaining.forEach(System.out::println);
+
+		Optional<Product> productByPriceAndbrand = productRepository.getProduct2("Apple Ind", 150000.33);
+		System.out.println("product by brand and name " + productByPriceAndbrand);
+
+		transactionConcept();
+
 	}
 
+	public void transactionConcept() {
+		int affectedRow = productRepository.updateprice(170000.99, "Apple Ind");
+		System.out.println("No. of rows are affected " + affectedRow);
+	}
 	private List<Product> getProducts() {
 		List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 		return numbers.stream()
